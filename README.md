@@ -33,5 +33,5 @@ At this point your function should look like this:
 * Amazon Eventbridge Integration for Ops Items
 
 ### Caveats
-* I would only recommending using this where leveraging a Network or Application Load Balancer is not possible. 
+* I would only recommend using this where leveraging a Network or Application Load Balancer is not possible. 
 * This is not built to fail back automatically and will be a manual effort.
