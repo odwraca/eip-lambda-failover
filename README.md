@@ -10,6 +10,8 @@ Create a new function, author from scratch and edit the python script to reflect
 
 Create a second function from scratch using [start-instance_function.py](https://github.com/odwraca/eip-lambda-failover/blob/main/start-instance_function.py) and then update your InstanceIds to your target instance ID.
 
+For both functions, make sure your permissions in the execution role are set for your Lambda function to access the EC2 actions required in your function. 
+
 1. Create a topic for SNS to capture events.
 2. Create a Cloudwatch alarm to trigger based upon your needs and target the newly created SNS topic. Here are a few examples:
   - [R53 Health Check - Endpoint or IP](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html)
@@ -17,6 +19,12 @@ Create a second function from scratch using [start-instance_function.py](https:/
 3. Go to your EIP Allocation Lambda function and add the following: 
   - Create a trigger for your Lambda Function for SNS and use the topic that is receiving your events. 
   - Create a destination with the condition of "On Success" and target the EC2 Start Instance function.
+
+Don't forget to save and deploy your package.
+
+At this point your function should look like this:
+![Lambda EIP Failover](https://i.imgur.com/So78bzv.png "Lambda EIP Failover")
+
 
 ## Possible upgrades
 * Spin up a replacement server in a different AZ via an AMI. 
